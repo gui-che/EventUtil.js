@@ -9,24 +9,29 @@
 可以像下面这样使用EventUtil对象：
 
     
-var btn = document.getElementById( 'myBtn' );
 
-var handler = function( event ) {
-    var target;
+( function() {
 
-    event = EventUtil.getEvent( event );
-    EventUtil.preventDefault( event );
-    EventUtil.stopPropagation( event ): 
-    target = EventUtil.getTarget( event );
+    var btn = document.getElementById( 'myBtn' );
 
-    if ( "innerText" in target ) {
-        target.innerText = target.innerHTML + 'X';
-    } else {
-        target.textContent = target.textContent + 'X';
-    }
+    var handler = function( event ) {
 
-};
+        var target;
+        event = EventUtil.getEvent( event );
+        EventUtil.preventDefault( event );
+        EventUtil.stopPropagation( event ): 
+        target = EventUtil.getTarget( event );
 
-EventUtil.addHandler( btn, 'click', handler );
-EventUtil.removeHandler( btn, 'click', handler );
+        if ( "innerText" in target ) {
+            target.innerText = target.innerHTML + 'X';
+        } else {
+            target.textContent = target.textContent + 'X';
+        }
 
+    };
+
+    EventUtil.addHandler( btn, 'click', handler );
+
+    EventUtil.removeHandler( btn, 'click', handler );
+
+})();
