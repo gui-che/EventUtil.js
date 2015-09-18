@@ -8,27 +8,25 @@
 
 可以像下面这样使用EventUtil对象：
 
-{% codeblock %}
     
-    var btn = document.getElementById( 'myBtn' );
+var btn = document.getElementById( 'myBtn' );
 
-    var handler = function( event ) {
-        var target;
+var handler = function( event ) {
+    var target;
 
-        event = EventUtil.getEvent( event );
-        EventUtil.preventDefault( event );
-        EventUtil.stopPropagation( event ): 
-        target = EventUtil.getTarget( event );
+    event = EventUtil.getEvent( event );
+    EventUtil.preventDefault( event );
+    EventUtil.stopPropagation( event ): 
+    target = EventUtil.getTarget( event );
 
-        if ( "innerText" in target ) {
-            target.innerText = target.innerHTML + 'X';
-        } else {
-            target.textContent = target.textContent + 'X';
-        }
+    if ( "innerText" in target ) {
+        target.innerText = target.innerHTML + 'X';
+    } else {
+        target.textContent = target.textContent + 'X';
+    }
 
-    };
+};
 
-    EventUtil.addHandler( btn, 'click', handler );
-    EventUtil.removeHandler( btn, 'click', handler );
+EventUtil.addHandler( btn, 'click', handler );
+EventUtil.removeHandler( btn, 'click', handler );
 
-{% endcodeblock %}
